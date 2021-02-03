@@ -11,7 +11,7 @@ let nickle = 0.05;
 let penny = 0.01;
 
 let cost = 1.25;
-let payment = [4, 2, 2, 5];
+let payment = [8, 12, 12, 15];
 
 function purchase(price, coins) {
   console.log(coins);
@@ -28,13 +28,13 @@ function purchase(price, coins) {
       if (balance > quarter) {
         balance -= quarter;
         change[0] += 1;
-      } else if (balance > dime) {
+      } else if (balance > dime && balance < quarter) {
         balance -= dime;
         change[1] += 1;
-      } else if (balance > nickle) {
+      } else if (balance > nickle && balance < dime) {
         balance -= nickle;
         change[2] += 1;
-      } else if (balance > penny) {
+      } else if (balance > penny && balance < nickle) {
         balance -= penny;
         change[3] += 1;
       }
